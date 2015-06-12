@@ -8,7 +8,7 @@ public class ReverseBitsWrongAnswer {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ReverseBitsWrongAnswer rb = new ReverseBitsWrongAnswer();
-		System.out.println(rb.reverseBits(2147483648));// input 2147483648 (10000000000000000000000000000000)
+		System.out.println(rb.reverseBits(0x80000000));// input 2147483648 (10000000000000000000000000000000)
 
 	}
 

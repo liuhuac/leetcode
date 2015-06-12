@@ -7,24 +7,14 @@ public class NumberOf1Bits {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		NumberOf1Bits nb = new NumberOf1Bits();
-		System.out.println(Long.MAX_VALUE);
 	}
 
-	public int hammingWeight(int n) {
-        if(Integer.MAX_VALUE<n){
-            return 0;
-        }
-        if(0==n){
-            return 0;
-        }
+	// you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
         int count = 0;
-        while(0!=n){
-            if(1==n%2){
-                count++;
-            }
-            n = n/2;
+        for(int i=0; i<32; i++){
+            if((n & 1) == 1) count++;
+            n = n>>>1;
         }
         return count;
     }
