@@ -1,11 +1,11 @@
-package edu.clemson.ece.leetcode.BestTimeToBuyAndSellStockII;
+package edu.clemson.ece.leetcode.BestTimeToBuyAndSellStock;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TimeLimitExceeded {
+public class BestTimeToBuyAndSellStock {
 
 	public static int[] prices = null;
 	
@@ -30,30 +30,31 @@ public class TimeLimitExceeded {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TimeLimitExceeded tle = new TimeLimitExceeded();
+		BestTimeToBuyAndSellStock tle = new BestTimeToBuyAndSellStock();
 		readFile();
 		System.out.println(tle.maxProfit(prices));
 	}
 
 	public int maxProfit(int[] prices) {
-        return maxProfitBetween(prices, 0, prices.length-1);
+        int max = 0;
+        for(int i=0; i<prices.length-1; i++){
+            int nm = nextMax(prices, i+1, prices.length-1);
+            int diff = nm - prices[i];
+            if(0 < diff && max < diff){
+                max = diff;
+            }
+        }
+        return max;
     }
     
-    public int maxProfitBetween(int[] prices, int from, int to){
-        if(from>=to) return 0;
-        int p = peekBetween(prices, from, to);
-        int profit = 0;
-        for(int i=from; i<p; i++){
-            profit += prices[p] - prices[i];
+    public int nextMax(int[] prices, int l, int r) {
+        int max = prices[l];
+        while(l<=r){
+            if(prices[l]>max){
+                max = prices[l];
+            }
+            l++;
         }
-        return profit + maxProfitBetween(prices, p+1, to);
-    }
-    
-    public int peekBetween(int[] prices, int from, int to){
-        int p = from;
-        for(int i=from; i<=to; i++){
-            if(prices[i]>prices[p]) p = i;
-        }
-        return p;
+        return max;
     }
 }
