@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TimeLimitExceeded {
+public class MissUnderstandWrong {
 
 	public static int[] prices = null;
 	
@@ -23,6 +23,7 @@ public class TimeLimitExceeded {
 				i++;
 			}
 			prices = array;
+			//prices = new int[]{9,8,7,6,5,4,3,2,1,0,0,0,0};
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,7 +31,7 @@ public class TimeLimitExceeded {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TimeLimitExceeded tle = new TimeLimitExceeded();
+		MissUnderstandWrong tle = new MissUnderstandWrong();
 		readFile();
 		System.out.println(tle.maxProfit(prices));
 	}
