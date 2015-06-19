@@ -8,7 +8,7 @@ public class SearchA2DMatrix {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SearchA2DMatrix sm = new SearchA2DMatrix();
-		int[][] matrix = {{1,1}};
+		int[][] matrix = {{1},{3}};
 		int target = 2;
 		System.out.print(sm.searchMatrix(matrix, target));
 	}
@@ -30,7 +30,7 @@ public class SearchA2DMatrix {
             if(matrix[row][mid] > target){
                 r = mid - 1;
             } else if(matrix[row][mid] < target){
-                l = mid;
+                l = mid + 1;
             } else {
                 return true;
             }
@@ -43,6 +43,13 @@ public class SearchA2DMatrix {
         while(l<=r){
             if(l==r) return l;
             int mid = l + (r - l)/2;
+            if(l==mid){
+            	if(matrix[r][0]<=target){
+            		return r;
+            	} else {
+            		return l;
+            	}
+            }
             if(matrix[mid][0] > target){
                 r = mid - 1;
             } else if(matrix[mid][0] < target){
