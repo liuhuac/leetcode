@@ -1,6 +1,7 @@
 package edu.clemson.ece.leetcode.Subsets;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Subsets {
@@ -11,7 +12,7 @@ public class Subsets {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Subsets ss = new Subsets();
-		int[] nums = new int[]{1,2};
+		int[] nums = new int[]{4,1,0};
 		List<List<Integer>> res = ss.subsets(nums);
 		for(List<Integer> l : res){
 			System.out.println(l.toString());
@@ -20,25 +21,20 @@ public class Subsets {
 
 	public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        res.add(new ArrayList<Integer>());
-        for(int i=1; i<=nums.length; i++){
+        Arrays.sort(nums);
+        for(int i=0; i<=nums.length; i++){
             List<List<Integer>> tmp = subsets(nums, i, nums.length);
             res.addAll(tmp);
         }
-        
         return res;
     }
     public List<List<Integer>> subsets(int[] nums, int k, int n) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(0==k) return res;
-        if(k==n){
-            for(int i=0; i<n; i++){
-                List<Integer> tmp = new ArrayList<Integer>();
-                tmp.add(nums[i]);
-                res.add(tmp);
-            }
-            return res;
+        if(0==k){
+        	res.add(new ArrayList<Integer>());
+        	return res;
         }
+        if(k>n) return res;
         List<List<Integer>> pre1 = subsets(nums, k-1, n-1);
         List<List<Integer>> pre2 = subsets(nums, k, n-1);
         res.addAll(pre2);
