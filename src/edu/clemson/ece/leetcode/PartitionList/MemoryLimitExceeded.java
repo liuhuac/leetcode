@@ -36,6 +36,7 @@ public class MemoryLimitExceeded {
             }
             scan = scan.next;
         }
+        if(null!=lend) lend.next = null; // Very important, avoid cycle
         if(null==send) return large;
         send.next = large;
         return small;
