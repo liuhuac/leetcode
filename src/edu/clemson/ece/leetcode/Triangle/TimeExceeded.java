@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Triangle {
+public class TimeExceeded {
 
 	/**
 	 * @param args
@@ -12,11 +12,11 @@ public class Triangle {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<List<Integer>> triangle = new ArrayList<List<Integer>>();
-		triangle.add(Arrays.asList(2));
-		triangle.add(Arrays.asList(3,4));
-		triangle.add(Arrays.asList(5,6,7));
-		triangle.add(Arrays.asList(4,1,8,3));
-		Triangle t = new Triangle();
+		triangle.add(Arrays.asList(-1));
+		triangle.add(Arrays.asList(2,3));
+		triangle.add(Arrays.asList(1,-1,-3));
+		//triangle.add(Arrays.asList(4,1,8,3));
+		TimeExceeded t = new TimeExceeded();
 		System.out.print(t.minimumTotal(triangle));
 	}
 	public int minimumTotal(List<List<Integer>> triangle) {
@@ -38,16 +38,14 @@ public class Triangle {
     }
     public void next(int[] path){
         int end = path.length-1;
-        int last = path[end];
-        if(last==path.length-1){
+        if(path[end]==path.length-1){
             path[0] = -1;
             return;
         }
-        int pre = path[end-1];
-        while(last==pre+1&&end>1){
-            last = path[end--];
-            pre = path[end-1];
+        while(path[end]==path[end-1]+1&&end>1){
+            end--;
         }
-        while(end<path.length) path[end++]=pre+1;
+        int pre = path[end] + 1;
+        while(end<path.length) path[end++]=pre;
     }
 }
