@@ -1,5 +1,7 @@
 package edu.clemson.ece.leetcode.WordLadder;
 
+import java.util.Set;
+
 public class WordLadder {
 
 	/**
@@ -10,7 +12,7 @@ public class WordLadder {
 
 	}
 public int ladderLength(String beginWord, String endWord, Set<String> wordDict) {
-        
+        return 0;
     }
     public boolean isAdjacent(String word1, String word2){
         int diff = 0;
