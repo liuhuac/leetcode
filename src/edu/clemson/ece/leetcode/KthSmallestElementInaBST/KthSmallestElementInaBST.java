@@ -22,7 +22,7 @@ public class KthSmallestElementInaBST {
         if(k==n[0]) {
             res[0] = root.val;
             return true;
-        } 
+        }
         return kthSmallest(root.right, k, n, res);
     }
 }
