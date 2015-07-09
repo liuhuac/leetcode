@@ -41,8 +41,12 @@ public class ReverseLinkedListII {
         }
         
         
-
-        firstend.next = reversehead;
+        if(firstend.next==head){
+            head = reversehead;
+        } else {
+            firstend.next = reversehead;
+        }
+        
         reverseend.next = scan;
         return head;
     }
