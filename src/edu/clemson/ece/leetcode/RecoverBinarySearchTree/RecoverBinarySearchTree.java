@@ -9,18 +9,40 @@ public class RecoverBinarySearchTree {
     TreeNode snd = null;
     TreeNode pre = new TreeNode(Integer.MIN_VALUE);
     public void recoverTree(TreeNode root) {
-        inOrder(root);
+        
+        if(root==null) return;
+        
+        TreeNode cur = root;
+        
+        while(cur!=null){
+            if(cur.left==null){
+                //
+                if(fst==null&&pre.val>cur.val) fst = pre;
+                if(fst!=null&&pre.val>cur.val) snd = cur;
+                pre = cur;
+                //
+                cur = cur.right;
+            } else {
+                TreeNode scan = cur.left;
+                while(scan.right!=null&&scan.right!=cur) scan = scan.right;
+                if(scan.right==null){
+                    scan.right = cur;
+                    cur = cur.left;
+                } else {
+                    scan.right = null;
+                    //
+                    if(fst==null&&pre.val>cur.val) fst = pre;
+                    if(fst!=null&&pre.val>cur.val) snd = cur;
+                    pre = cur;
+                    //
+                    cur = cur.right;
+                }
+            }
+        }
+        
         int tmp = snd.val;
         snd.val = fst.val;
         fst.val = tmp;
-    }
-    public void inOrder(TreeNode root){
-        if(root==null) return;
-        inOrder(root.left);
-        if(fst==null&&pre.val>root.val) fst = pre;
-        if(fst!=null&&pre.val>root.val) snd = root;
-        pre = root;
-        inOrder(root.right);
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
