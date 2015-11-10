@@ -68,7 +68,7 @@ public class NQueensPermutation {
     }
     
     public int[] quicksort(int[] pos, int l, int r){
-        
+        return null;
     }
     
     public int factorial(int n){
