@@ -11,6 +11,7 @@ public class BestTimeToBuyAndSellStockIV {
 	}
 
 	public int maxProfit(int k, int[] prices) {
+		//if k >= n/2, then you can make maximum number of transactions.
         if(k>=prices.length/2){
             int maxProfit = 0;
             for(int i=1; i<prices.length; i++){
@@ -18,6 +19,8 @@ public class BestTimeToBuyAndSellStockIV {
             }
             return maxProfit;
         }
+        
+        // extend the idea
         int[] maxProfit = new int[k+1];
         int[] lowPrice = new int[k+1];
         for(int i=0; i<lowPrice.length; i++) lowPrice[i]=Integer.MAX_VALUE;
