@@ -22,5 +22,24 @@ public class SelfCrossing {
         }
         return false;
     }
+	
+/*               i-2
+    case 1 : i-1©°©¤©´
+                ©¸©¤©à©¤>i
+                 i-3
+
+                    i-2
+    case 2 : i-1 ©°©¤©¤©¤©¤©´
+                 ©¸©¤¨T¨T>©¼i-3
+                 i  i-4      (i overlapped i-4)
+
+    case 3 :    i-4
+               ©°©¤©¤©´ 
+               ©¦i<©à©¤©´
+            i-3©¦ i-5©¦i-1
+               ©¸©¤©¤©¤©¤©¼
+                i-2
+
+*/
 
 }
