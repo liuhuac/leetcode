@@ -31,7 +31,7 @@ public class WrongAnswer {
         }
         
         String current = "JFK";
-        while(pool.containsKey(current)){
+        while(pool.containsKey(current)){ // Stop condiction incorrect
             ans.add(current);
             PriorityQueue<String> queue = pool.get(current);
             String next = queue.poll();
