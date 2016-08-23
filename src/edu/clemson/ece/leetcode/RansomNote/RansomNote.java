@@ -1,4 +1,4 @@
-package edu.clemson.ece.leetcode.RansomNote
+package edu.clemson.ece.leetcode.RansomNote;
 
 public class RansomNote {
     public boolean canConstruct(String ransomNote, String magazine) {
